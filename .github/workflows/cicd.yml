@@ -145,18 +145,9 @@ jobs:
     - name: Ensure Minikube is running
       run: |
         minikube status || minikube start
-      
-    - name: Configure kubeconfig for Minikube
-      run: |
-        # Point kubeconfig to Minikube, usually stored in $HOME/.kube/config by default
-        kubectl config use-context minikube
-    
-    #- name: Deploy to Minikube
-    #- name: Configure kubeconfig
-    #  run: |
-    #   # mkdir -p $HOME/.kube
-    #    echo "${{ secrets.EKS_KUBECONFIG }}" > $HOME/.kube/config
-    - name: Deploy to EKS
+     
+  
+    - name: Deploy to Minikube
       run: |
         kubectl apply -f ds.yml
 
